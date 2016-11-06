@@ -8,8 +8,14 @@
 #include <iostream>
 #include <windows.h> //para usar Sleep()
 #include "stackLifoTDA.h" //TDA para crear y manejar listas
+#include <windows.h>
 
 using namespace std;
+
+//Inicia la onfiguracion de la consola para poder usar el cambio de colores en cualquier modulo
+HANDLE hstdout = GetStdHandle( STD_OUTPUT_HANDLE );
+CONSOLE_SCREEN_BUFFER_INFO csbi;
+//Inicia la onfiguracion de la consola para poder usar el cambio de colores en cualquier modulo
 
 //Creacion del struct para jugadores (maximo 7)
 struct player{
@@ -71,14 +77,96 @@ int main(){
 
 void introductionTo()
 {
-	cout<<"Bienvenidos a .:MemoNume:."<<endl;
-	cout<<"Mientras mas recuerdes en menos tiempo -> ";
-	cout<<"MAS PUNTOS GANARAS\n"<<endl;
+	//Se muestra la pantalla 1
+	
+	GetConsoleScreenBufferInfo( hstdout, &csbi );
+	// Configurar colores
+	SetConsoleTextAttribute( hstdout, 0xF9 );
+	cout<<" 																																									  "<<endl;
+	cout<<"                                                                                                                                                                       "<<endl;
+	cout<<"         ++++++++++++++++++++++++++++++++++                                                                                                                            "<<endl;
+	cout<<"         ++++++++++++++++++++++++++++++++++         :      .:   :      ,,   :  .:       :    :::::,  ,:::::       :+',    :    ::::,         ,:      :::::             "<<endl;
+	cout<<"         ++++++++++++++++++++++++++++++++++         +.     ++   ++     +'   +  ,+      '+  `+++++++  +++++++`   '++++++   +.  .++++++'       ++      +++++++           "<<endl;
+	cout<<"         ++++++++++++;;++++++++++++++++++++         +.     ++   ++;    +'   +   +;     ++  +'        +'    ++   +,    `   +.  .+    :++     :++'     +    `++          "<<endl;
+	cout<<"         +++++++++'     ,++++++++++++++++++         +.     ++   +.+    +'   +   ++     +   +'        +'    `+  .+         +.  .+     ;+     +';+     +      +`         "<<endl;
+	cout<<"         ++++++++' ,+++: ,+++++++++++++++++         +.     ++   + ++   +'   +   .+    '+   +'        +'    `+   +'        +.  .+      +;    +` +     +      +'         "<<endl;
+	cout<<"         ++++++++ .+++++' +++++++++++++++++         +.     ++   +  +.  +'   +    +:   +'   +':::::   +'    ++   '++:      +.  .+      +'   '+  ++    +      '+         "<<endl;
+	cout<<"         +++++++; +++++++ :++++++++++++++++         +.     ++   +  '+  +'   +    '+   +`   +++++++   +++++++      ;+++    +.  .+      ++   +'  ;+    +      '+         "<<endl;
+	cout<<"         +++++++; +++++++ .++++++++++++++++         +.     ++   +   ++ +'   +    `+  '+    +'        +'```++.       .++   +.  .+      +;   +    +.   +      '+         "<<endl;
+	cout<<"         +++++++; +++++++ `++++++++++++++++         +.     ++   +   `+ +'   +     +' +;    +'        +'    ++         +'  +.  .+      +,  ;+++++++   +      +'         "<<endl;
+	cout<<"         ++++++++ ;+++++' +++++++++++++++++         ++     ++   +    +++'   +     ;+ +     +'        +'    :+         ++  +.  .+     ;+   ++'''''+   +     `+`         "<<endl;
+	cout<<"         ++++++++:+++ .++.+++++++++++++++++         '+     ++   +     ++'   +      +;+     +'        +'     +. ,`    `+,  +.  .+    ;+;  `+`     +`  +    .++          "<<endl;
+	cout<<"         +++++++++++   '+++++++++++++++++++          ++++++++   +     ;+'   +      ++:     .+++++++  +'     ++ ++++++++   +.  .++++++;   '+      ++ `+++++++           "<<endl;
+	cout<<"         ++++++++++:    +++++++++++++++++++           `::::`    `      `    `       `        ``````  `      ``   `:::     `    `````     `       ``  `````             "<<endl;
+	cout<<"         ++++++++++      +++  ++++++'++++++                                                                                                                            "<<endl;
+	cout<<"         +++++++++       ++.   ++++: ++++++                                                                                                                            "<<endl;
+	cout<<"         ++++++++       ++;    '+++   +++++                                                                                                                            "<<endl;
+	cout<<"         +++++++       +++      ++  : .++++         +++++++     ;++++++'       ++           ++           +++++++:   +.     :+   ++     .+  +++++++++   `++             "<<endl;
+	cout<<"         ++++++,      ,++          ++  .+++         +.   ,++    +;             ++          ,++;          ++    ++   +.     :+   +++    .+     `+       '++`            "<<endl;
+	cout<<"         ;;;;;;       ++.         :+++  '++         +.    `+,   +              ++          +''+          ++     +,  +.     :+   +.+.   .+     `+       +.++            "<<endl;
+	cout<<"                     ++'          +++++  ++         +.     ++   +              ++          +` +          ++     +.  +.     :+   +,'+   .+     `+      .+ ;+            "<<endl;
+	cout<<"         ++++++++++++++          +++++++  +         +.     ;+   +``````        ++         ,+  +;         ++    `+`  +.     :+   +, ++  .+     `+      ++  +,           "<<endl;
+	cout<<"         :++++++++++++          '++++++++           +.     ,+   +++++++        ++         +'  ++         ++:::+++   +.     :+   +, .+` .+     `+      +,  ++           "<<endl;
+	cout<<"                               ,++++++++++          +.     ,+   +              ++         +`   +`        ++++++,    +.     :+   +,  ++ .+     `+     ,+   :+           "<<endl;
+	cout<<"          .....................+++++++++++          +.     ++   +              ++        :+''''+'        ++         +`     :+   +,   +:.+     `+     ++''''+.          "<<endl;
+	cout<<"           ++++++++++++++++++++++++++++++           +.     +;   +              ++        ++++++++        ++         +'     :+   +,   :+.+     `+     ++++++++          "<<endl;
+	cout<<"           '+++++++++++++++++++++++++++++           +.    ++    +,             ++        +.    `+`       ++         '+     :+   +,    +++     `+    :+     :+          "<<endl;
+	cout<<"            ++++++++++++++++++++++++++++            +++++++     +++++++'       .+++++++ '+      +'       ++          ++++++++   +,     ++     `+    ++      +:         "<<endl;
+	cout<<"             ++++++++++++++++++++++++++             :::::        .:::::,         :::::: ::      ,:       :,           ,++++:    :      ::      :    :.      :,         "<<endl;
+	cout<<"              ++++++++++++++++++++++++                                                                                                                                 "<<endl;
+	cout<<"               ++++++++++++++++++++++                                                                                                                                  "<<endl;
+	cout<<"                '+++++++++++++++++++                                                                                                                                   "<<endl;
+	cout<<"                 ,++++++++++++++++;                                                                                                                                    "<<endl;
+	cout<<"                   ++++++++++++++                                                                                                                                      "<<endl;
+	cout<<"                    ++++++++++++                                                                                                                                       "<<endl;
+	cout<<"                     ;++++++++:                                                                                                                                        "<<endl;
+	cout<<"                       ++++++                                                                                                                                          "<<endl;
+	cout<<"                        `++                                                                                                                                            "<<endl;
+	cout<<"                                                                                                                                                                       "<<endl;
+	SetConsoleTextAttribute( hstdout, csbi.wAttributes );
+	SetConsoleTextAttribute( hstdout, 0x9);
+	cout<<"	Carrera:"<<endl;
+	SetConsoleTextAttribute( hstdout, csbi.wAttributes );
+	SetConsoleTextAttribute( hstdout, csbi.wAttributes );
+	SetConsoleTextAttribute( hstdout, 0xF);
+	cout<<"		Tecnicatura en desarrollo de VideoJuegos"<<endl;
+	SetConsoleTextAttribute( hstdout, csbi.wAttributes );
+	system("pause");
+	system("cls");
+	
+	//Se muestra la pantalla 2
+	
+	GetConsoleScreenBufferInfo( hstdout, &csbi );
+	// Configurar colores
+	SetConsoleTextAttribute( hstdout, 0xF9 );
+	cout<<"                                                                                                                                                                                                   "<<endl;
+	cout<<"                             @@,       @@,                                                              ,@@    ,@@,                                                                                "<<endl;
+	cout<<"                             @@,       @@,                                                              ,@@    ,@@,                                                                                "<<endl;
+	cout<<"                             @@,       @@,                                                              ,@@    ,@@,                                                                                "<<endl;
+	cout<<"                             @@@@    ,@@@,                                                              ,@@@,  ,@@,                                                                                "<<endl;
+	cout<<"                             @@@@    ,@@@,                                                              ,@@@,  ,@@,                                                                                "<<endl;
+	cout<<"                             @@@@    ,@@@,                                                              ,@@@,  ,@@,                                                                                "<<endl;
+	cout<<"                             @@@@@, @@@@@,                                                              ,@@@@@ ,@@,                                                                                "<<endl;
+	cout<<"                             @@@@@, @@@@@,          @@@@@@         @@@@@@@@@            @@@@@@          ,@@ ,@ ,@@,        ,@@   @@@         @@@@@@@@@            @@@@@@                           "<<endl;
+	cout<<"                             @@@@@, @@@@@,          @@@@@@         @@@@@@@@@            @@@@@@          ,@@ ,@ ,@@,        ,@@   @@@         @@@@@@@@@            @@@@@@                           "<<endl;
+	cout<<"                             @@, @@@@, @@,        ,@@,  ,@@,       @@@ ,@ ,@@,        ,@@,  ,@@,        ,@@ ,@@@@@,        ,@@   @@@         @@@ ,@ ,@@,        ,@@,  ,@@,                         "<<endl;
+	cout<<"                             @@, @@@@, @@,        ,@@,  ,@@,       @@@ ,@ ,@@,        ,@@,  ,@@,        ,@@   @@@@,        ,@@   @@@         @@@ ,@ ,@@,        ,@@,  ,@@,                         "<<endl;
+	cout<<"                             @@, @@@@, @@,        ,@@,  ,@@,       @@@ ,@ ,@@,        ,@@,  ,@@,        ,@@   @@@@,        ,@@   @@@         @@@ ,@ ,@@,        ,@@,  ,@@,                         "<<endl;
+	cout<<"                             @@,  ,@   @@,        ,@@@@@@@@,       @@@ ,@ ,@@,        ,@@,  ,@@,        ,@@   @@@@,        ,@@   @@@         @@@ ,@ ,@@,        ,@@@@@@@@,                         "<<endl;
+	cout<<"                             @@,  ,@   @@,        ,@@@@@@@@,       @@@ ,@ ,@@,        ,@@,  ,@@,        ,@@    ,@@,        ,@@   @@@         @@@ ,@ ,@@,        ,@@@@@@@@,                         "<<endl;
+	cout<<"                             @@,  ,@   @@,        ,@@,             @@@ ,@ ,@@,        ,@@,  ,@@,        ,@@    ,@@,        ,@@   @@@         @@@ ,@ ,@@,        ,@@,                               "<<endl;
+	cout<<"                             @@,       @@,        ,@@,             @@@ ,@ ,@@,        ,@@,  ,@@,        ,@@    ,@@,        ,@@   @@@         @@@ ,@ ,@@,        ,@@,                               "<<endl;
+	cout<<"                             @@,       @@,        ,@@,  ,@@,       @@@ ,@ ,@@,        ,@@,  ,@@,        ,@@    ,@@,        ,@@   @@@         @@@ ,@ ,@@,        ,@@,  ,@@,                         "<<endl;
+	cout<<"                             @@,       @@,        ,@@,  ,@@,       @@@ ,@ ,@@,        ,@@,  ,@@,        ,@@    ,@@,        ,@@   @@@         @@@ ,@ ,@@,        ,@@,  ,@@,                         "<<endl;
+	cout<<"                             @@,       @@,          @@@@@@         @@@ ,@ ,@@,          @@@@@@          ,@@    ,@@,           @@@            @@@ ,@ ,@@,          @@@@@@                           "<<endl;
+	cout<<"                                                    @@@@@@                              @@@@@@                                @@@                                 @@@@@@                           "<<endl;
+	cout<<"                                                                                                                                                                                                   "<<endl;
+	SetConsoleTextAttribute( hstdout, csbi.wAttributes );
 	cout<<"San Luis ULP - Universidad de la Punta"<<endl;
 	cout<<"Carrera: Tecnicatura en desarrollo de VideoJuegos"<<endl;
 	cout<<"Materia: Desarrollo de VideoJuegos I"<<endl;
 	cout<<"Profesor: Mercado Luis"<<endl;
-	cout<<"Alumno: Careglio Albornoz Jesus Lautaro"<<endl;
+	cout<<"Alumnos: Franco Bornancini y Careglio Albornoz Jesus Lautaro"<<endl;
 }
 
 int chargerPlayers(){
